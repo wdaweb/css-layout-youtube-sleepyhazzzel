@@ -17,8 +17,8 @@ body {
     display: flex;
     width: 22vw;
     height: 7vh;
-    /* background-color: deeppink; */
     align-items: center;
+    /* background-color: deeppink; */
 }
 
 .left img {
@@ -31,13 +31,35 @@ body {
 }
 
 .center {
-    display: flex;
+    /* Safari */
+    display: -webkit-flex;
+    /* display: flex; */
     width: 60vw;
     height: 7vh;
-    /* background-color: deepskyblue; */
     justify-content: center;
     align-items: center;
+    /* background-color: deepskyblue; */
 }
+
+.search-icon {
+    margin-right: -1.4vw;
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/VisualEditor_-_Icon_-_Search-big_-_white.svg/1200px-VisualEditor_-_Icon_-_Search-big_-_white.svg.png) center center no-repeat #111;
+    background-size: 4vh;
+    width: 6vh;
+    height: 5vh;
+    box-sizing: border-box;
+    border: 1px solid #2979FF;
+    border-right: none;
+    border-radius: 2.5vh 0 0 2.5vh;
+    z-index: 1;
+    visibility: hidden;
+    user-select: none;
+}
+
+.center:focus-within .search-icon {
+    visibility: visible;
+}
+
 
 .searchInput {
     background: #111;
@@ -45,15 +67,47 @@ body {
     border-right: none;
     outline: none;
     box-sizing: border-box;
-    padding: 5px 24vw 5px 1vw;
+    width: 40vw;
     height: 5vh;
-    border-radius: 30px 0 0 30px;
+    padding: 5px 0.5vw 5px 1.5vw;
+    border-radius: 2.5vh 0 0 2.5vh;
     font-size: 16px;
     color: #eee;
 }
 
+/* 點擊時 */
+.searchInput:focus {
+    border-left: none;
+    border: 1px solid #2979FF;
+}
+
+.searchInput::-webkit-search-cancel-button {
+    /* Remove default */
+    -webkit-appearance: none;
+
+    /* Own custom styles */
+    height: 4vh;
+    width: 4vh;
+    background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Cross_icon_%28white%29.svg/2048px-Cross_icon_%28white%29.svg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1.5vh;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.searchInput::-webkit-search-cancel-button:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+/* 搜尋輸入樣式設定 */
+/* .searchInput::placeholder {
+    background-color: #fff;
+} */
+
 .searchButton {
-    margin-left: -5px;
+    /* margin-left: -5px; */
     width: 5vw;
     height: 5vh;
     background: #222;
@@ -268,7 +322,8 @@ h2 {
     /* background-color: red; */
 }
 
-.img-container {
+.img-container,
+.bottom-container {
     position: relative;
     width: 19.5vw;
     height: auto;
@@ -383,8 +438,8 @@ p:hover::first-line {
     transition: all 0.25s ease;
 }
 
-.video-card:hover .ellipsis i,
-.video-card:hover .cc {
+.img-container:hover .cc,
+.bottom-container:hover .ellipsis i {
     opacity: 1;
 }
 
@@ -447,14 +502,38 @@ h3 {
     /* 頂部對齊 */
     vertical-align: top;
     cursor: pointer;
+
 }
 
-.shorts-card h1 {
-    width: 12vw;
+.shorts-container {
+    position: relative;
+    width: 12.6vw;
+    height: auto;
+    /* background: green; */
+}
+
+
+.shorts-text {
+    margin-top: 5px;
+    width: 11vw;
+    /* background-color: red; */
 }
 
 .shorts-card p {
-    margin-left: -5px;
+    margin-left: -4px;
+}
+
+.shorts-card .ellipsis {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0;
+    width: 1.5vw;
+    /* background-color: blue; */
+}
+
+.shorts-container:hover .ellipsis i {
+    opacity: 1;
 }
 
 .shorts-bottom {
